@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "kaumena-api"
+version = "0.1.0"
+description = "Web API for Kaumena audio separation library"
+authors = ["jabkascript"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.68.0"
+uvicorn = "^0.15.0"
+pydantic = "^2.0"
+python-multipart = "^0.0.6"
+kaumena = { path = "my-lib/kaumena-0.1.0-py3-none-any.whl", develop = true }
+
+[tool.poetry.dev-dependencies]
+pytest = "^8.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

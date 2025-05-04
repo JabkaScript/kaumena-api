@@ -1,0 +1,1 @@
+from kaumena.models import HTDemucsModel
