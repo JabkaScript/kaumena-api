@@ -10,11 +10,11 @@ async def lifespan(app: FastAPI):
     app.state.model_config = load_models_config()
     yield
     # Clean up the ML models and release the resources
-app = FastAPI(title="Kaumena API", version="0.1.0", lifespan=lifespan)
+app = FastAPI(title="Kaumena API", version="0.1.0", lifespan=lifespan, debug=True)
 app.include_router(audio_router, prefix="/v1/audio")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # или "*"
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -24,3 +24,4 @@ app.mount("/outputs", StaticFiles(directory="outputs"), name="outputs")
 @app.get("/v1")
 def root():
     return {"message": "Welcome to Kaumena API"}
+
