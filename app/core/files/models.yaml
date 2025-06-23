@@ -6,6 +6,18 @@ models:
       standard: "weights/htdemucs/75fc33f5-1941ce65.th"
       hq: "weights/htdemucs/955717e8-8726e21a.th"
     model_included_in_path: true
+  mdxnet:
+    target: kaumena.models.HTDemucsModel
+    sources: [ "drums", "bass", "other", "vocals" ]
+    variants:
+      standard: "weights/htdemucs/75fc33f5-1941ce65.th"
+    model_included_in_path: true
+  convtasnet:
+    target: kaumena.models.HTDemucsModel
+    sources: [ "drums", "bass", "other", "vocals" ]
+    variants:
+      standard: "weights/htdemucs/75fc33f5-1941ce65.th"
+    model_included_in_path: true
   openunmix:
     target: kaumena.models.OpenUnmixModel
     sources: ["drums", "bass", "other", "vocals"]

@@ -8,7 +8,7 @@ import torch
 from typing import Dict
 
 
-from app.core.config import load_models_config
+from ... import load_models_config
 from app.services.separation import separate_audio
 
 router = APIRouter()
@@ -62,10 +62,8 @@ async def separate_audio_endpoint(
             "file": file.filename
         }
 
-        # Добавляем задачу в фон
         background_tasks.add_task(background_separate, task_id, input_path, model, variant)
 
-        # Возвращаем клиенту идентификатор задачи
         return JSONResponse(content={"task_id": task_id, "status": "accepted"}, status_code=202)
 
 @router.get("/task/{task_id}")

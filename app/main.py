@@ -1,8 +1,8 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.v1.audio import router as audio_router
-from app.core.config import load_models_config
+from .api.v1.audio import router as audio_router
+from .core.config import load_models_config
 from fastapi.staticfiles import StaticFiles
 
 @asynccontextmanager

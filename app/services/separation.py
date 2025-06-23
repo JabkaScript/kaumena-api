@@ -15,6 +15,12 @@ def get_sep_model(model: str = "htdemucs", variant: str = "standard"):
     if model == "htdemucs":
         sep_model = HTDemucsModel(sources=SOURCES, model_path=config["models"][model]["variants"][variant], device=device, model_included_in_path=config["models"][model]["model_included_in_path"])
         return sep_model
+    if model == "convtasnet":
+        sep_model = OpenUnmixModel(sources=SOURCES, model_type='umxl', device=device)
+        return sep_model
+    if model == "mdxnet":
+        sep_model = OpenUnmixModel(sources=SOURCES, model_type='umxhq', device=device)
+        return sep_model
     if model == "openunmix":
         sep_model = OpenUnmixModel(sources=SOURCES, model_type=variant, device=device)
         return sep_model
